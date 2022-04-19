@@ -24,6 +24,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
@@ -40,6 +43,95 @@
         
         width: 300px;
     }
+
+    /* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+ /* background-color: #f1f1f1;*/
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -10px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -10px;
+  content: "X";
+}
+
+/*  pwd strenth indicator begin   */
+
+.progress-bar {
+    color: #333;
+} 
+
+* {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+
+
+  /* password strength indicator end *****/
   </style>
   </head>
 
@@ -91,29 +183,30 @@
     <section class="login">
       <div class="container myform">
         <p><h2>Login</h2>
+          <form action="success.html" class="needs-validation" method="post" novalidate>
             <!-- Email input -->
             <div class="form-outline mb-4">
               <label class="form-label" for="form2Example1">Email address</label>
-              <input type="email" id="form2Example1" class="form-control" />
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+            <div class="invalid-feedback" id="error">Please enter a valid email address.</div>
+
+
               
             </div>
           
-            <!-- Password input -->
+            <!-- Password input -->       
             <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example2">Password</label>
-              <input type="password" id="form2Example2" class="form-control" />
-              
+             <label class="form-label" for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <div class="invalid-feedback">Please enter your password to continue.</div>
+            <div class="pwstrength_viewport_progress"></div>
+          
             </div>
           
             <!-- 2 column grid layout for inline styling -->
             <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Remember me </label>
-                </div>
-              </div>
+              
           
               <div class="col">
                 <!-- Simple link -->
@@ -122,20 +215,27 @@
             </div>
           
             <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
           
             <!-- Register buttons -->
             <div class="text-center">
               <p>Not a member? <a href="signup.html#signup">Register</a></p>
-              
+              <div id="message">
+                Password must contain the following:
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+              </div>
             </div>
           </form>
+          
         </p>
       </div>
     </section>
 
   </main><!-- End #main -->
-
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
@@ -224,7 +324,88 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="/pwdstrength.js"></script>
+  <!-- JavaScript for disabling form submissions if there are invalid fields -->
+  <script>
+    // Self-executing function
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
 
+var myInput = document.getElementById("inputPassword");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+
+</script>
 </body>
 
 </html>
