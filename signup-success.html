@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login</title>
+  <title>Signup Success</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -22,14 +22,8 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-<link href="./passwd.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  
-  
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style>
@@ -40,23 +34,16 @@
       height: 550px;
       margin-bottom: 10px;
       min-height: 100px;
+
+
     }
-    .myform{
-
-        
-        width: 300px;
-    }
-
-    
-
-  
   </style>
   </head>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+  <header id="header" class="fixed-top header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
@@ -67,7 +54,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>           
           <li><a class="nav-link scrollto" href="login.html#login">Login</a></li>
           <li><a class="nav-link scrollto" href="signup.html#signup">Sign Up</a></li>
           <li><a class="nav-link scrollto" href="index.html#portfolio">Destinations</a></li>
@@ -81,82 +68,97 @@
     </div>
   </header><!-- End Header -->
 
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Welcome to Gods own country</h1>
+      <h2>Explore Kerala</h2>
+      <a href="#portfolio" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+
   <main id="main">
+      <p>
+          SignUp Success !!!
+      </p> 
+  
+    
+    
+           
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
 
-    <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
+        <div class="section-title">
+          <h2>Connect with us</h2>
+         </div>
 
-        <div class="d-flex justify-content-between align-items-center">
-          
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Login</li>
-          </ol>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Our Address</h3>
+              <p>Department of Tourism, Government of Kerala,Thiruvananthapuram, Kerala, India-695033</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p>info@keralatourism.org</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p>+91 471 2321132</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 ">
+            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.914142570543!2d76.95163291478293!3d8.507717293883537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bbc89175cf99%3A0xf02ca5be8abb2741!2sDepartment%20of%20Tourism%2C%20Govt.of%20Kerala!5e0!3m2!1sen!2sin!4v1649046524316!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+            
+          </div>
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
-
-    <section class="login">
-      <div class="container myform">
-        <p><h2>Login</h2>
-          <form action="success.html" class="needs-validation" method="post" novalidate>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example1">Email address</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
-            <div class="invalid-feedback" id="error">Please enter a valid email address.</div>
-
-
-              
-            </div>
-          
-            <!-- Password input --> 
-            
-            <div class="form-outline mb-4" id="pwd-container">
-             <label class="form-label" for="inputPassword">Password</label>           
-            
-             
-
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password"  required>
-
-           
-             
-             <div class="invalid-feedback">Please enter your password to continue.</div>
-             
-               
-            
-          
-      
-            
-        </div>  
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              
-          
-              <div class="col">
-                <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
-              </div>
-            </div>
-          
-            <!-- Submit button -->
-            <input type="submit" class="btn btn-primary btn-block mb-4">
-          
-            <!-- Register buttons -->
-            <div class="text-center">
-              <p>Not a member? <a href="signup.html#signup">Register</a></p>
-              
-            </div>
-          </form>
-          
-        </p>
-      </div>
-    </section>
+    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
-  
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
@@ -245,33 +247,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  
-  
-  <!-- JavaScript for disabling form submissions if there are invalid fields -->
-  <script>
-    // Self-executing function
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-
-</script>
 </body>
 
 </html>

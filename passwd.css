@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+/*html { height: 100%; }
+body { height: 100%; font-size: 16px; background: #222; font-family: 'Lato'; }
+*/
+/*#pwd-container {
+  position: absolute;
+  max-width: 460px;
+  height: 200px;
+  padding: 25px;
+  background-color: #f9f9f9;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+*/
+fieldset { 
+  border: 0px; 
+  margin: 0px; 
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+fieldset input { 
+  display: block;
+  width : 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  outline: none;
+  font-size : 15px;
+}
+
+#password-strength {
+   display: block;
+   position: relative;
+   font-size: 0px;
+   top : 2px;
+ }
+
+#pwd-container .box {
+  position: relative;
+  width: 25%;
+  height: 25px;
+  display: inline-block;
+  background-color: #e4e4e4;
+  text-align: center;
+}
+
+#pwd-container .box div.bar-text {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align:center;
+  font-size: 13px;
+  z-index: 3;
+  line-height: 25px;
+}
+
+#pwd-container .box div.bar {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  z-index: 2;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#pwd-container .normal .box.box1 div.bar {
+  background: #FF0000;
+  width: 100%;
+}
+
+.box.box1,
+#pwd-container .box.box1 div.bar{ border-radius : 5px 0px 0px 5px; }
+
+.box.box4,
+#pwd-container .box.box4 div.bar{border-radius : 0px 5px 5px 0px;}
+
+#pwd-container .normal .box.box1 div.bar-text,       
+#pwd-container .medium .box.box1 div.bar-text,       
+#pwd-container .strong .box.box1 div.bar-text,
+#pwd-container .vstrong .box.box1 div.bar-text, {
+  color: #fff;
+}
+
+#pwd-container .medium .box.box1 div.bar {
+  background: #E66C2C;
+  width: 100%;
+}
+
+#pwd-container .medium .box.box2 div.bar {
+  background: #E66C2C;
+  width: 100%;
+}
+
+#pwd-container .strong .box.box1 div.bar {
+  background: hsl(131, 89%, 56%);
+  width: 100%;
+}
+
+#pwd-container .strong .box.box2 div.bar {
+    background: hsl(131, 89%, 56%);
+  width: 100%;
+}
+
+#pwd-container .strong .box.box3 div.bar {
+    background: hsl(131, 89%, 56%);
+  width: 100%;
+}
+
+#pwd-container .vstrong .box.box1 div.bar {
+  background: #006400;
+  width: 100%;
+}
+
+#pwd-container .vstrong .box.box2 div.bar {
+  background: #006400;
+  width: 100%;
+}
+
+#pwd-container .vstrong .box.box3 div.bar {
+  background: #006400;
+  width: 100%;
+}
+
+#pwd-container .vstrong .box.box4 div.bar {
+  background: #006400;
+  width: 100%;
+}
